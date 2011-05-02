@@ -1,0 +1,14 @@
+{
+  "name": "VocabGrab!",
+  "version": "1.5.8",
+  "description": "Never Stop Progressing.",
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_title": "Never Stop Progressing",
+	"popup": "quiz.html"
+  },
+  "permissions": [
+	"tabs",
+	"http://vocabgrab.com/"
+  ]
+}
