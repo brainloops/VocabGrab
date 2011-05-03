@@ -1,0 +1,66 @@
+body {
+  font-family: Helvetica;
+  font-size: 14;
+  width:580px;
+  height:350px;
+  padding:1px;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  background-image:url('/images/background.png');
+  background-repeat:no-repeat;
+}
+
+li {
+	list-style: none;
+	padding: 3px;
+}
+
+#login {display:none}
+#signup {display:none}
+#content {
+	display:none;
+	padding: 9px;
+}
+#loading {display:none}
+#div_nav {
+	float: right; 
+	display:none; 
+	//margin: -20px; 
+	width: 50px;
+}
+
+#div_points { 
+	style='text-align: right;
+	background-image:url('/images/score.png');
+	background-size: 75px;
+  	background-repeat:no-repeat;
+	background-position: center;
+	width: 75px;
+	height: 65px;
+	text-align:center;
+	line-height: 65px;
+	font-weight: bold;
+}
+#home { 
+	style='text-align: right;
+	background-image:url('/images/home.png');
+	background-size: 40px;
+  	background-repeat:no-repeat;
+	background-position: center;
+	width: 75px;
+	height: 65px;
+}
+#div_list_details {
+	background-image:url('/images/list.png');
+	background-size: 75px;
+  	background-repeat:no-repeat;
+	background-position: center;
+	width: 75px;
+	height: 65px;
+	text-align:center;
+	line-height: 70px;
+	font-weight: bold;
+	color: white;
+}
+#wrapper {margin: 68px;}
+

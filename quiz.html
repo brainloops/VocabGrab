@@ -1,72 +1,7 @@
 <html>
 <head>
-<style>
-body {
-  font-family: Helvetica;
-  font-size: 14;
-  width:580px;
-  height:350px;
-  padding:1px;
-  overflow-x:hidden;
-  overflow-y:hidden;
-  background-image:url('images/background.png');
-  background-repeat:no-repeat;
-}
 
-li {
-	list-style: none;
-	padding: 3px;
-}
-
-#login {display:none}
-#signup {display:none}
-#content {
-	display:none;
-	padding: 9px;
-}
-#loading {display:none}
-#div_nav {
-	float: right; 
-	display:none; 
-	//margin: -20px; 
-	width: 50px;
-}
-
-#div_points { 
-	style='text-align: right;
-	background-image:url('images/score.png');
-	background-size: 75px;
-  	background-repeat:no-repeat;
-	background-position: center;
-	width: 75px;
-	height: 65px;
-	text-align:center;
-	line-height: 65px;
-	font-weight: bold;
-}
-#home { 
-	style='text-align: right;
-	background-image:url('images/home.png');
-	background-size: 40px;
-  	background-repeat:no-repeat;
-	background-position: center;
-	width: 75px;
-	height: 65px;
-}
-#div_list_details {
-	background-image:url('images/list.png');
-	background-size: 75px;
-  	background-repeat:no-repeat;
-	background-position: center;
-	width: 75px;
-	height: 65px;
-	text-align:center;
-	line-height: 70px;
-	font-weight: bold;
-	color: white;
-}
-#wrapper {margin: 68px;}
-</style>
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="all" />
 
 <script type="text/javascript" src="javascript/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
@@ -77,7 +12,6 @@ function success_list(data) {
 }
 
 function error_list() {
-	console.log('error fetching current list details');
 }
 
 function request_current_list() {
@@ -100,7 +34,6 @@ function success_points(data) {
 }
 
 function error_points() {
-	console.log('FAILURE to update points.');
 }
 
 // sets current word in cookie
@@ -143,7 +76,6 @@ function success_response(data) {
 }
 
 function error_response() {
-	console.log('error sending response');
 }
 
 function send_response(question_id, response_id) {
@@ -196,17 +128,14 @@ function toggle_question_visible() {
 }
 
 function show_loading(requestor) {
-	console.log(requestor + ' is showing loading indicator');
     $('#loading').show();	
 }
 
 function hide_loading(requestor) {
-	console.log(requestor + ' is hiding loading indicator');
     $('#loading').hide();	
 }
 
 function error_words(xhr, status, error) {
-	console.log('error: ' + status);
 }
 
 function request_quiz() {
@@ -234,7 +163,6 @@ function request_points() {
 	xhr = $.ajax(params);
 }
 function error_auth_check(xhr, status, error) {
-	console.log('error: ' + status);
 }
 
 function success_auth_check(data) {
@@ -263,12 +191,10 @@ function success_auth(data) {
 		valid_session();
 	} else {
 		$('#user_alerts').html("Login didn't go through, try again.<br/>");
-		console.log('request to auth went through but failed login.');
 	}
 }
 
 function error_auth() {
-	console.log('FAILED login');
 }
 
 function success_signup(data) {
@@ -282,8 +208,8 @@ function success_signup(data) {
 }
 
 function error_signup() {
-	console.log('FAILED signup');
 }
+
 function auth(email, password) {
 	var params = {
 			type: 'GET',
