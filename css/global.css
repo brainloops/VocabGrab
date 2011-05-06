@@ -15,34 +15,33 @@ li {
 	padding: 3px;
 }
 
-#login {display:none}
-#signup {display:none}
-#content {
-	display:none;
-	padding: 9px;
-}
-#loading {display:none}
-#div_nav {
-	float: right; 
-	display:none; 
-	//margin: -20px; 
-	width: 50px;
+#wrapper {
+margin-top: 65px;
+margin-left: 50px;
 }
 
-#div_points { 
-	style='text-align: right;
-	background-image:url('/images/score.png');
-	background-size: 75px;
-  	background-repeat:no-repeat;
-	background-position: center;
-	width: 75px;
-	height: 65px;
-	text-align:center;
-	line-height: 65px;
-	font-weight: bold;
+#div_nav {
+	float: right; 
+    width: 50px;
+	display:none; 
+    margin-right: 50px;
 }
+
+#content {
+	float: left; 
+	display:none;
+    width: 400px;
+	padding: 9px;
+}
+
+#login {display:none}
+
+#signup {display:none}
+
+#loading {display:none}
+
 #home { 
-	style='text-align: right;
+	text-align: right;
 	background-image:url('/images/home.png');
 	background-size: 40px;
   	background-repeat:no-repeat;
@@ -50,6 +49,7 @@ li {
 	width: 75px;
 	height: 65px;
 }
+
 #div_list_details {
 	background-image:url('/images/list.png');
 	background-size: 75px;
@@ -62,5 +62,16 @@ li {
 	font-weight: bold;
 	color: white;
 }
-#wrapper {margin: 68px;}
 
+#div_points { 
+	text-align: right;
+	background-image:url('/images/score.png');
+	background-size: 75px;
+  	background-repeat:no-repeat;
+	background-position: center;
+	width: 75px;
+	height: 65px;
+	text-align:center;
+	line-height: 65px;
+	font-weight: bold;
+}

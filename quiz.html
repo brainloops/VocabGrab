@@ -7,6 +7,13 @@
 <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 <script>
 
+$(document).ready(function() {
+    console.log('test');
+});
+
+//var base_url = "http://vocabgrab.com";
+var base_url = "http://localhost:3000";
+
 function success_list(data) {
 	$('#div_list_details').html(data.list_name);
 }
@@ -17,7 +24,7 @@ function error_list() {
 function request_current_list() {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/current_list.json',
+			url: base_url +  '/api/current_list.json',
 			success: success_list,
 			error: error_list
 	}
@@ -81,7 +88,7 @@ function error_response() {
 function send_response(question_id, response_id) {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/response.json',
+			url: base_url +  '/api/response.json',
 			data: {question_id: question_id, response_id: response_id}, 
 			success: success_response,
 			error: error_response
@@ -142,7 +149,7 @@ function request_quiz() {
 	show_loading('request quiz');
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/question.json',
+			url: base_url +  '/api/question.json',
 			success: success_quiz,
 			error: error_words
 	}
@@ -156,13 +163,14 @@ function request_quiz() {
 function request_points() {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/points.json',
+			url: base_url +  '/api/points.json',
 			success: success_points,
 			error: error_points
 	}
 	xhr = $.ajax(params);
 }
-function error_auth_check(xhr, status, error) {
+function error_auth_check(xhr, status) {
+    console.log("auth fail", xhr, status);
 }
 
 function success_auth_check(data) {
@@ -177,7 +185,7 @@ function success_auth_check(data) {
 function auth_check() {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/auth_check',
+			url: base_url +  '/api/auth_check',
 			success: success_auth_check,
 			error: error_auth_check
 	}
@@ -213,7 +221,7 @@ function error_signup() {
 function auth(email, password) {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/auth',
+			url: base_url +  '/api/auth',
 			success: success_auth,
 			error: error_auth,
 			data: {'email': email, 'password': password}
@@ -224,7 +232,7 @@ function auth(email, password) {
 function signup(email, password) {
 	var params = {
 			type: 'GET',
-			url: 'http://vocabgrab.com/api/signup',
+			url: base_url +  '/api/signup',
 			success: success_signup,
 			error: error_signup,
 			data: {'email': email, 'password': password}
@@ -268,7 +276,7 @@ $(document).ready(
 			$('#signup_email').focus();
 		});
 		$('#home').click(function() {
-			var props = {url: 'http://vocabgrab.com'};
+			var props = {url: base_url};
 			chrome.tabs.create(props, function() {});	
 		});
 		//  check if user is logged in, branch logic from their
@@ -280,15 +288,25 @@ $(document).ready(
 </head>
 <body>
 <div id='wrapper'>
+
+	<div id='user_alerts'></div>
+
+	<div id='content'>
+		<div id='prompt'>
+		</div>
+		<div id='choices'>
+        </div>
+	</div>
+
 	<div id='div_nav'>
 		<div id='home'></div>
 		<div id='div_list_details'></div>
 		<div id='div_points'></div>
-
 	</div>
-	<div id='user_alerts'></div>
+
+
 	<div id='login'>
-		<form action='http://vocabgrab.com/api/auth' method='post' id='login_form'>
+		<form action='/api/auth' method='post' id='login_form'>
 		<table> 
 		<tr> 
 			<td>Email:</td> 
@@ -309,7 +327,7 @@ $(document).ready(
 
 	<div id='signup'>
 		Almost there! <br/><br/>
-		<form action='http://vocabgrab.com/api/signup' method='post' id='signup_form'>
+		<form action='/api/signup' method='post' id='signup_form'>
 		<table> 
 		<tr> 
 			<td>Email:</td> 
@@ -328,12 +346,6 @@ $(document).ready(
 	</div>
 	<div id='loading'>
 		loading question...
-	</div>
-	<div id='content'>
-		<div id='prompt'>
-		</div>
-		<div id='choices'>
-		</div>
 	</div>
 </div>
 </body>
